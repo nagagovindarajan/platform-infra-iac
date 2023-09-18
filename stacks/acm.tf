@@ -1,5 +1,5 @@
 resource "aws_acm_certificate" "app_certificate" {
-  domain_name       = "*.apps.nagarajan.cloud"
+  domain_name       = var.ACM_DOMAIN
   validation_method = "DNS"
 
   tags = {

@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "platform_webapp" {
-  bucket = "dashboard.apps.nagarajan.cloud" 
+  bucket = var.WEB_APP_DOMAIN
 
   website {
     index_document = "index.html"

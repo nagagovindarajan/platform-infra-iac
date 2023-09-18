@@ -1,5 +1,5 @@
 resource "aws_route53_zone" "nagarajan-cloud" {
-  name = "apps.nagarajan.cloud"
+  name = var.MAIN_HOST
 }
 
 output "ns-servers" {
@@ -8,7 +8,7 @@ output "ns-servers" {
 
 resource "aws_route53_record" "platform-record" {
   zone_id = aws_route53_zone.nagarajan-cloud.zone_id
-  name    = "platform.apps.nagarajan.cloud"
+  name    = var.ALB_DOMAIN
   type    = "A"
   alias {
     name                   = aws_alb.platform-alb.dns_name
@@ -19,7 +19,7 @@ resource "aws_route53_record" "platform-record" {
 
 resource "aws_route53_record" "platform_webapp" {
   zone_id = aws_route53_zone.nagarajan-cloud.zone_id
-  name    = "dashboard.apps.nagarajan.cloud"
+  name    = var.WEB_APP_DOMAIN
   type    = "A"
 
   alias {
