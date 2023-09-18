@@ -1,11 +1,4 @@
-# Alias for AWS provider in us-east-1
-provider "aws" {
-  alias  = "us_east_1"
-  region = "us-east-1"
-}
-
 resource "aws_acm_certificate" "app_certificate" {
-  provider          = aws.us_east_1
   domain_name       = "*.apps.nagarajan.cloud"
   validation_method = "DNS"
 

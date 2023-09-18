@@ -33,16 +33,6 @@ resource "aws_alb_listener" "platform_https_listener" {
   ssl_policy        = "ELBSecurityPolicy-2016-08"
   certificate_arn   = "arn:aws:acm:ap-southeast-1:581508631401:certificate/01ecf75c-df9b-4464-bd61-c0b5e35a2d67"
 
-  # default_action {
-  #   type = "authenticate-cognito"
-  #   authenticate_cognito {
-  #     user_pool_arn       = aws_cognito_user_pool.main.arn
-  #     user_pool_client_id = aws_cognito_user_pool_client.client.id
-  #     user_pool_domain    = aws_cognito_user_pool_domain.main.domain
-  #   }
-  #   order = 1
-  # }
-
   default_action {
     type             = "forward"
     target_group_arn = aws_alb_target_group.platform-target-group.arn
