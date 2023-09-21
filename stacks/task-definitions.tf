@@ -8,7 +8,7 @@ resource "aws_ecs_task_definition" "platform_eng_task" {
   container_definitions = jsonencode([
     {
       "name"         : "platform-eng",
-      "image"        : "public.ecr.aws/o7a2v6t3/platform_eng:14",
+      "image"        : "public.ecr.aws/o7a2v6t3/platform_eng:15",
       "environment": [
         {
           "name": "AWS_DEFAULT_REGION",
